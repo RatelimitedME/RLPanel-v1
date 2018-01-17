@@ -4,7 +4,7 @@ namespace me\Ratelimited\Panel;
 
 class UserManager extends Database
 {
-    function getInt($name)
+    public function getInt($name)
     {
         switch (htmlentities($name)) {
             case("SIGNUP_USERS"):
@@ -13,9 +13,9 @@ class UserManager extends Database
                 break;
             case("USERS"):
                 $query = pg_query($this->database, "SELECT * FROM users");
-                return pg_num_rows($query);    
-                break;     
-            case("ADMINS"):
+                return pg_num_rows($query);
+                break;
+            case("BLOCKED"):
                 $query = pg_query($this->database, "SELECT * FROM users WHERE is_blocked = true");
                 return pg_num_rows($query);
                 break;
