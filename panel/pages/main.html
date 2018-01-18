@@ -1,0 +1,106 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-3 col-md-6 col-sm-6">
+            <div class="card card-stats">
+                <div class="card-header" data-background-color="blue">
+                    <i class="fa fa-users"></i>
+                </div>
+                <div class="card-content">
+                    <p class="category">Members</p>
+                    <h3 class="card-title" id="users"></h3>
+                </div>
+                <div class="card-footer">
+                    <div class="stats">
+                        Current user count
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-6 col-sm-6">
+            <div class="card card-stats">
+                <div class="card-header" data-background-color="red">
+                    <i class="fa fa-ban"></i>
+                </div>
+                <div class="card-content">
+                    <p class="category">Blocked</p>
+                    <h3 class="card-title" id="blocked"></h3>
+                </div>
+                <div class="card-footer">
+                    <div class="stats">
+                        Blocked or unmigrated users
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-6 col-sm-6">
+            <div class="card card-stats">
+                <div class="card-header" data-background-color="green">
+                    <i class="fa fa-envelope"></i>
+                </div>
+                <div class="card-content">
+                    <p class="category">E-mails</p>
+                    <h3 class="card-title" id="emails"></h3>
+                </div>
+                <div class="card-footer">
+                    <div class="stats">
+                        E-mail accounts registered
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-6 col-sm-6">
+            <div class="card card-stats">
+                <div class="card-header" data-background-color="orange">
+                    <i class="fa fa-clock-o"></i>
+                </div>
+                <div class="card-content">
+                    <p class="category">Awaiting</p>
+                    <h3 class="card-title" id="signup"></h3>
+                </div>
+                <div class="card-footer">
+                    <div class="stats">
+                        Users waiting for tokens
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header card-header-icon" data-background-color="rose">
+                    <i class="fa fa-key fa-2x"></i>
+                </div>
+                <div class="card-content">
+                    <h4 class="card-title">Token Generator</h4>
+                    <form method="#" action="#">
+                        <div class="form-group label-floating">
+                            <label class="control-label">The token receiver's email address</label>
+                            <input type="email" class="form-control">
+                        </div>
+                        <div class="form-group label-floating">
+                            <label class="control-label">The user's Discord™ Username#Discrim (like Alexander_#6686)</label>
+                            <input type="text" class="form-control">
+                        </div>
+                        <div class="form-group label-floating">
+                            <label class="control-label">The user's Discord™ id (like 325981708488933377)</label>
+                            <input type="text" class="form-control">
+                        </div>
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" name="optionsCheckboxes"> The token receiver has read and agreed to our
+                                <a href="https://ratelimited.me/tos.pdf">Terms of Service</a>
+                            </label>
+                        </div>
+                        <button type="submit" class="btn btn-fill btn-rose">Generate</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="js/rlpanel/stats.js"></script>
+<script>
+    loadStats();
+</script>
