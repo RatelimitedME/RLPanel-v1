@@ -21,38 +21,17 @@
 
 
 </head>
-
-<body>
-
+<body class="tone-1">
     <nav class="navbar navbar-transparent navbar-absolute">
         <div class="container-fluid">
             <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
             </div>
             <div class="collapse navbar-collapse">
                 <ul class="nav navbar-nav navbar-right">
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                            <i class="material-icons">email</i>
-                            <span class="notification">5</span>
-                            <p class="hidden-lg hidden-md">
-                                Mail
-                                <b class="caret"></b>
-                            </p>
+                        <a id="toggle" href="#" class="dropdown-toggle" data-toggle="dropdown" onClick="activateDark()">
+                            <i class="material-icons">brightness_4</i>
                         </a>
-                        <ul class="dropdown-menu">
-                            <li>
-                                <a href="#">Asa sent you an email</a>
-                            </li>
-                            <li>
-                                <a href="#">This is nothing more than a test</a>
-                            </li>
-                        </ul>
                     </li>
                     <li>
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -65,8 +44,6 @@
             </div>
         </div>
     </nav>
-
-
 
     <div class="sidebar" data-active-color="white" data-background-color="red" data-image="img/sidebar-1.jpg">
 
@@ -127,208 +104,49 @@
             </ul>
             <div class="nav-container">
                 <ul class="nav">
-                    <li routerlinkactive="active">
-                        <a data-vivaldi-spatnav-clickable="1" href="#/dashboard">
+                    <li>
+                        <a data-vivaldi-spatnav-clickable="1" onclick="loadContent('main')" href="#">
                             <i class="material-icons">dashboard</i>
                             <p>Dashboard</p>
                         </a>
                     </li>
-                    <li routerlinkactive="active">
+                    <li>
                         <a data-toggle="collapse" href="#componentsExamples">
-                            <i class="material-icons">apps</i>
-                            <p>Components
+                            <i class="material-icons">people</i>
+                            <p>Users
                                 <b class="caret"></b>
                             </p>
                         </a>
                         <div class="collapse" id="componentsExamples">
                             <ul class="nav">
-                                <li routerlinkactive="active">
-                                    <a data-vivaldi-spatnav-clickable="1" href="#/components/buttons">
-                                        <span class="sidebar-mini">B</span>
-                                        <span class="sidebar-normal">Buttons</span>
+                                <li>
+                                    <a data-vivaldi-spatnav-clickable="1" href="#">
+                                        <span class="sidebar-mini">AS</span>
+                                        <span class="sidebar-normal">Awaiting Token</span>
                                     </a>
                                 </li>
-                                <li routerlinkactive="active">
-                                    <a data-vivaldi-spatnav-clickable="1" href="#/components/grid">
+                                <li>
+                                    <a data-vivaldi-spatnav-clickable="1" href="#">
 
-                                        <span class="sidebar-mini">GS</span>
-                                        <span class="sidebar-normal">Grid System</span>
+                                        <span class="sidebar-mini">M</span>
+                                        <span class="sidebar-normal">Members</span>
                                     </a>
                                 </li>
-                                <li routerlinkactive="active">
-                                    <a data-vivaldi-spatnav-clickable="1" href="#/components/panels">
-                                        <span class="sidebar-mini">P</span>
-                                        <span class="sidebar-normal">Panels</span>
+                                <li>
+                                    <a data-vivaldi-spatnav-clickable="1" href="#">
+                                        <span class="sidebar-mini">E</span>
+                                        <span class="sidebar-normal">E-mails</span>
                                     </a>
                                 </li>
-                                <li routerlinkactive="active">
-                                    <a data-vivaldi-spatnav-clickable="1" href="#/components/sweet-alert">
-                                        <span class="sidebar-mini">SA</span>
-                                        <span class="sidebar-normal">Sweet Alert</span>
-                                    </a>
-                                </li>
-                                <li routerlinkactive="active">
-                                    <a data-vivaldi-spatnav-clickable="1" href="#/components/notifications">
-                                        <span class="sidebar-mini">N</span>
-                                        <span class="sidebar-normal">Notifications</span>
-                                    </a>
-                                </li>
-                                <li routerlinkactive="active">
-                                    <a data-vivaldi-spatnav-clickable="1" href="#/components/icons">
-                                        <span class="sidebar-mini">I</span>
-                                        <span class="sidebar-normal">Icons</span>
-                                    </a>
-                                </li>
-                                <li routerlinkactive="active">
-                                    <a data-vivaldi-spatnav-clickable="1" href="#/components/typography">
-                                        <span class="sidebar-mini">T</span>
-                                        <span class="sidebar-normal">Typography</span>
+                                <li>
+                                    <a data-vivaldi-spatnav-clickable="1" href="#">
+                                        <span class="sidebar-mini">BU</span>
+                                        <span class="sidebar-normal">Blocked Users</span>
                                     </a>
                                 </li>
                             </ul>
                         </div>
                     </li>
-
-                    <li routerlinkactive="active">
-                        <a data-toggle="collapse" href="#formsExamples">
-                            <i class="material-icons">content_paste</i>
-                            <p>Forms
-                                <b class="caret"></b>
-                            </p>
-                        </a>
-                        <div class="collapse" id="formsExamples">
-                            <ul class="nav">
-                                <li routerlinkactive="active">
-                                    <a data-vivaldi-spatnav-clickable="1" href="#/forms/regular">
-                                        <span class="sidebar-mini">RF</span>
-                                        <span class="sidebar-normal">Regular Forms</span>
-                                    </a>
-                                </li>
-                                <li routerlinkactive="active">
-                                    <a data-vivaldi-spatnav-clickable="1" href="#/forms/extended">
-                                        <span class="sidebar-mini">EF</span>
-                                        <span class="sidebar-normal">Extended Forms</span>
-                                    </a>
-                                </li>
-                                <li routerlinkactive="active">
-                                    <a data-vivaldi-spatnav-clickable="1" href="#/forms/validation">
-                                        <span class="sidebar-mini">VF</span>
-                                        <span class="sidebar-normal">Validation Forms</span>
-                                    </a>
-                                </li>
-                                <li routerlinkactive="active">
-                                    <a data-vivaldi-spatnav-clickable="1" href="#/forms/wizard">
-                                        <span class="sidebar-mini">W</span>
-                                        <span class="sidebar-normal">Wizard</span>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </li>
-
-                    <li routerlinkactive="active">
-                        <a data-toggle="collapse" href="#tablesExamples">
-                            <i class="material-icons">grid_on</i>
-                            <p>Tables
-                                <b class="caret"></b>
-                            </p>
-                        </a>
-                        <div class="collapse" id="tablesExamples">
-                            <ul class="nav">
-                                <li routerlinkactive="active">
-                                    <a data-vivaldi-spatnav-clickable="1" href="#/tables/regular">
-                                        <span class="sidebar-mini">RT</span>
-                                        <span class="sidebar-normal">Regular Tables</span>
-                                    </a>
-                                </li>
-                                <li routerlinkactive="active">
-                                    <a data-vivaldi-spatnav-clickable="1" href="#/tables/extended">
-                                        <span class="sidebar-mini">ET</span>
-                                        <span class="sidebar-normal">Extended Tables</span>
-                                    </a>
-                                </li>
-                                <li routerlinkactive="active">
-                                    <a data-vivaldi-spatnav-clickable="1" href="#/tables/datatables.net">
-                                        <span class="sidebar-mini">DT</span>
-                                        <span class="sidebar-normal">DataTables.net</span>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </li>
-
-                    <li routerlinkactive="active">
-                        <a data-vivaldi-spatnav-clickable="1" href="#/widgets">
-                            <i class="material-icons">widgets</i>
-
-                            <p>Widgets</p>
-                        </a>
-                    </li>
-
-                    <li routerlinkactive="active">
-                        <a data-vivaldi-spatnav-clickable="1" href="#/charts">
-                            <i class="material-icons">timeline</i>
-
-                            <p>Charts</p>
-                        </a>
-                    </li>
-                    <li routerlinkactive="active">
-                        <a data-vivaldi-spatnav-clickable="1" href="#/calendar">
-                            <i class="material-icons">date_range</i>
-
-                            <p>Calendar</p>
-                        </a>
-                    </li>
-
-                    <li routerlinkactive="active">
-                        <a data-toggle="collapse" href="#pagesExamples">
-                            <i class="material-icons">image</i>
-                            <p>Pages
-                                <b class="caret"></b>
-                            </p>
-                        </a>
-                        <div class="collapse" id="pagesExamples">
-                            <ul class="nav">
-                                <li>
-                                    <a href="./pricing.html" data-vivaldi-spatnav-clickable="1">
-                                        <span class="sidebar-mini">P</span>
-                                        <span class="sidebar-normal">Pricing</span>
-                                    </a>
-                                </li>
-                                <li routerlinkactive="active">
-                                    <a data-vivaldi-spatnav-clickable="1" href="#/pages/timeline">
-                                        <span class="sidebar-mini">T</span>
-                                        <span class="sidebar-normal">Timeline Page</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="./login.html" data-vivaldi-spatnav-clickable="1">
-                                        <span class="sidebar-mini">LP</span>
-                                        <span class="sidebar-normal">Login Page</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="./register.html" data-vivaldi-spatnav-clickable="1">
-                                        <span class="sidebar-mini">RP</span>
-                                        <span class="sidebar-normal">Register Page</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="./lock.html" data-vivaldi-spatnav-clickable="1">
-                                        <span class="sidebar-mini">LSP</span>
-                                        <span class="sidebar-normal">Lock Screen Page</span>
-                                    </a>
-                                </li>
-                                <li routerlinkactive="active">
-                                    <a data-vivaldi-spatnav-clickable="1" href="#/pages/user">
-                                        <span class="sidebar-mini">UP</span>
-                                        <span class="sidebar-normal">User Page</span>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </li>
-
                 </ul>
                 <div class="sidebar-moving-tab"></div>
             </div>
@@ -378,6 +196,7 @@
     <script src="js/material-dashboard-angular.js"></script>
     <!-- Script for loading content -->
     <script type="text/javascript" src="js/core/load.js"></script>
+    <script type="text/javascript" src="js/core/dark_mode.js"></script>
 
 </body>
 
