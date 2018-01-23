@@ -31,7 +31,12 @@ spl_autoload_register('autoload');
 
 switch(htmlentities($_GET['action'])) {
     case('getInt'):
-            $manager = new UserManager();
-            echo $manager->getInt(htmlentities($_GET['int']));
-            break;
+        $manager = new UserManager();
+        echo $manager->getInt(htmlentities($_GET['int']));
+        break;
+
+    case('fetchTable'):
+        $manager = new UserManager();
+        echo $manager->fetchTable(htmlentities($_GET['table']));
+        break;
 }
