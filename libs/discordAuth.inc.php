@@ -56,7 +56,7 @@ if(!isset($_GET['code'])){
         $_SESSION['discordId'] = $user->toArray()['id'];
         $_SESSION['loggedInAs'] = $user->getUsername() . "#" . $user->getDiscriminator();
         $_SESSION['discordUserName'] = $user->getUsername();
-        $_SESSION['discordAvatar'] = "https://cdn.discordapp.com/avatars/" . $user->toArray()['id'] . "/" . $user->toArray()['avatar'] . ".png?size=128";
+        $_SESSION['discordAvatar'] = "https://cdn.discordapp.com/avatars/" . $user->toArray()['id'] . "/" . $user->toArray()['avatar'] . ".png?size=128"; // No support for GIF profiles because I'm a lazy fuck
         include __DIR__ . '/../libs/authLib.inc.php';
 
     } catch (Exception $e) {
