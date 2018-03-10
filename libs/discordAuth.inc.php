@@ -15,7 +15,7 @@
 <?php
 
 require __DIR__ . '/../vendor/autoload.php';
-include __DIR__ . '/../../rlmeappcreds.inc.php'
+include __DIR__ . '/../../rlmeappcreds.inc.php';
 
 $provider = new \Wohali\OAuth2\Client\Provider\Discord([
     'clientId' => '384351888575037440',
