@@ -19,7 +19,6 @@ $_SESSION['discordAvatar'] = "https://cdn.discordapp.com/avatars/367747734373007
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<?php echo include_once (dirname(__FILE__) . '/__AntiAdBlock.php'); ?>
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 
 	<meta charset="utf-8">
@@ -78,6 +77,7 @@ if(!isset($_SESSION['loggedInAs']) || empty($_SESSION['loggedInAs']) || !array_k
 require 'api/statsDetails.inc.php';
 require 'libs/authLib.inc.php';
 require 'api/fileTablesListing.inc.php';
+include_once (dirname(__FILE__) . '/__AntiAdBlock.php');
 ?>
 
 <body class="page-body" data-url="http://neon.dev">
