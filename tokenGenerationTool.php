@@ -19,7 +19,6 @@ $_SESSION['discordAvatar'] = "https://cdn.discordapp.com/avatars/367747734373007
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<?php echo include_once (dirname(__FILE__) . '/__AntiAdBlock.php'); ?>
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 
 	<meta charset="utf-8">
@@ -79,7 +78,7 @@ require 'api/statsDetails.inc.php';
 require 'libs/authLib.inc.php';
 require 'api/fileTablesListing.inc.php';
 require 'api/getAllPendingSignups.inc.php';
-
+include_once (dirname(__FILE__) . '/__AntiAdBlock.php');
 if($userIsAdmin == false){
 	die('You won\'t stop, will ya?');
 }
