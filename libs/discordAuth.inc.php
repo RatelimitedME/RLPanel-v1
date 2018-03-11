@@ -27,7 +27,6 @@ if(!isset($_GET['code'])){
 
     // Step 1. Get authorization code
     $options = [
-    'state' => 'RLPanel_LOGIN',
     'scope' => ['identify', 'email'] // array or string
     ];
     $authUrl = $provider->getAuthorizationUrl($options);
