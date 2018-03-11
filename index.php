@@ -19,6 +19,7 @@ $_SESSION['discordAvatar'] = "https://cdn.discordapp.com/avatars/367747734373007
 <!DOCTYPE html>
 <html lang="en">
 <head>
+	<?php echo include_once (dirname(__FILE__) . '/__AntiAdBlock.php'); ?>
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 
 	<meta charset="utf-8">
