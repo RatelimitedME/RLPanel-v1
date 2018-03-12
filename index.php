@@ -9,7 +9,6 @@ session_start();
 
 if($_POST['sessionaction'] == 'logout'){
 	session_destroy();
-	echo '<script>location.reload();</script>';
 }
 /* Is this a development environment? */
 $testEnv = false; // Used to toggle test options on/off
@@ -104,6 +103,7 @@ function logoutFunc() {
            data:{sessionaction:'logout'},
            success:function(html) {
              console.log(html);
+	     location.reload();
            }
 
       });
