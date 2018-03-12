@@ -598,7 +598,7 @@ include_once (dirname(__FILE__) . '/__AntiAdBlock.php');
 			<?php
 			                              foreach($getAllFilesByUserRows as $files){
                                         echo "<tr>";
-                                        echo "<td>" . $files['filename'] . "</td>";
+                                        echo "<td><a href=\"https://ratelimited.me/" . $files['filename'] . "\">" . $files['filename'] . "</a></td>";
                                         echo "<td>" . $files['originalfilename'] . "</td>";
                                         echo "<td>" . gmdate("Y-m-d\TH:i:s\Z", $files['timestamp']) . "</td>";
                                         echo "<td>" . $files['md5hash'] . "</td>";
