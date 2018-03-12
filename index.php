@@ -7,6 +7,10 @@ RLPanel contains hardcoded locations and is specifically made to work with RLAPI
 /* Start the PHP Session */
 session_start();
 
+if($_POST['sessionaction'] == 'logout'){
+	session_destroy();
+	echo '<script>location.reload();</script>';
+}
 /* Is this a development environment? */
 $testEnv = false; // Used to toggle test options on/off
 
@@ -90,6 +94,20 @@ include_once (dirname(__FILE__) . '/__AntiAdBlock.php');
   gtag('js', new Date());
 
   gtag('config', 'UA-103855982-1');
+</script>
+	
+<script>
+function logoutFunc() {
+      $.ajax({
+           type: "POST",
+           url: 'https://panel.ratelimited.me/index.php',
+           data:{sessionaction:'logout'},
+           success:function(html) {
+             console.log(html);
+           }
+
+      });
+ }	
 </script>
 
 <div class="page-container"><!-- add class "sidebar-collapsed" to close sidebar by default, "chat-visible" to make chat appear always -->
@@ -467,7 +485,7 @@ include_once (dirname(__FILE__) . '/__AntiAdBlock.php');
 					<li class="sep"></li>
 		
 					<li>
-						<a href="extra-login.html">
+						<a href="#" onclick="logoutFunc();">
 							Log Out <i class="entypo-logout right"></i>
 						</a>
 					</li>
