@@ -103,7 +103,7 @@ function logoutFunc() {
            data:{sessionaction:'logout'},
            success:function(html) {
              console.log(html);
-	     location.reload();
+	     window.location.href = 'https://panel.ratelimited.me' " />
            }
 
       });
