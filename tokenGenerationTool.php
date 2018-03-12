@@ -7,6 +7,10 @@ RLPanel contains hardcoded locations and is specifically made to work with RLAPI
 /* Start the PHP Session */
 session_start();
 
+if($_POST['sessionaction'] == 'logout'){
+	session_destroy();
+}
+
 /* Is this a development environment? */
 $testEnv = false; // Used to toggle test options on/off
 
@@ -94,6 +98,20 @@ if($userIsAdmin == false){
   gtag('js', new Date());
 
   gtag('config', 'UA-103855982-1');
+</script>
+	
+<script>
+function logoutFunc() {
+      $.ajax({
+           type: "POST",
+           url: 'https://panel.ratelimited.me/index.php',
+           data:{sessionaction:'logout'},
+           success:function(html) {
+             console.log(html);
+	     window.location.href = 'https://panel.ratelimited.me';
+           }
+      });
+ }	
 </script>
 
 <div class="page-container"><!-- add class "sidebar-collapsed" to close sidebar by default, "chat-visible" to make chat appear always -->
@@ -471,7 +489,7 @@ if($userIsAdmin == false){
 					<li class="sep"></li>
 		
 					<li>
-						<a href="extra-login.html">
+						<a href="#" onclick="logoutFunc();">
 							Log Out <i class="entypo-logout right"></i>
 						</a>
 					</li>
