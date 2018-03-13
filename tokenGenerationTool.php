@@ -80,7 +80,6 @@ if(!isset($_SESSION['loggedInAs']) || empty($_SESSION['loggedInAs']) || !array_k
 /* Requirements */
 require 'api/statsDetails.inc.php';
 require 'libs/authLib.inc.php';
-require 'api/fileTablesListing.inc.php';
 require 'api/getAllPendingSignups.inc.php';
 include_once (dirname(__FILE__) . '/__AntiAdBlock.php');
 if($userIsAdmin == false){
