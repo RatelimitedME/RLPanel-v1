@@ -79,7 +79,6 @@ if(!isset($_SESSION['loggedInAs']) || empty($_SESSION['loggedInAs']) || !array_k
 /* Requirements */
 require 'api/statsDetails.inc.php';
 require 'libs/authLib.inc.php';
-require 'api/fileTablesListing.inc.php';
 include_once (dirname(__FILE__) . '/__AntiAdBlock.php');
 ?>
 
@@ -586,13 +585,25 @@ function logoutFunc() {
 		<div class="row">
 			<div class="col-sm-12">
 					<script type="text/javascript">
+
+
 		jQuery( document ).ready( function( $ ) {
 			var $table1 = jQuery( '#table-1' );
 			
 			// Initialize DataTable
 			$table1.DataTable( {
 				"aLengthMenu": [[10, 25, 50, -1], [10, 25, 50, "All"]],
-				"bStateSave": true
+				"bStateSave": true,
+				"ajax": {"url": "api/getUserUploads.inc.php?q=GetAllUploadsByToken"},
+				"columns": [
+				{ "data": "filename",  "render": function(data, type, row){
+					return '<td><a target="_blank" href="https://ratelimited.me/' + row['filename'] + '">' + row['filename'] + '</a></td>';
+				}},
+				{ "data": "originalfilename"},
+				{ "data": "timestamp"},
+				{ "data": "md5hash"},
+				{ "data": "sha1hash"}
+				]
 			});
 			
 			// Initalize Select Dropdown after DataTables is created
@@ -613,16 +624,6 @@ function logoutFunc() {
 				</tr>
 			</thead>
 			<tbody>
-			<?php
-			                              foreach($getAllFilesByUserRows as $files){
-                                        echo "<tr>";
-                                        echo "<td><a target=\"_blank\" href=\"https://ratelimited.me/" . $files['filename'] . "\">" . $files['filename'] . "</a></td>";
-                                        echo "<td>" . $files['originalfilename'] . "</td>";
-                                        echo "<td>" . gmdate("Y-m-d\TH:i:s\Z", $files['timestamp']) . "</td>";
-                                        echo "<td>" . $files['md5hash'] . "</td>";
-                                        echo "<td>" . $files['sha1hash'] . "</td>";
-                                        }
-                                        ?>
 			</tbody>
 			<tfoot>
 				<tr>
