@@ -11,16 +11,16 @@ In order to give the community time to respond and upgrade we strongly urge you 
 Mostly, a security issue would be one of the following:
 
 * SQL Injection
-* Priviledge Escalation
+* Privilege Escalation
 * XSS
 
 And the like.
 
 ### What is out of scope, though?
 
-First off, any third-party site (Such as, but not limited to `discordapp.com`, `okta.com`, `duo.com`, `bitly.com`) is out of scope entirely.
+First off, any third-party site (Such as `discordapp.com`, `okta.com`, `duo.com`, `bitly.com`) is out of scope entirely.
 
-Now, attacks related to our site which would be out of scope would be of the likes:
+Attacks related to *our* site which would be out of scope would be of the likes:
 * DDoS attacks
 * Physical attacks
 * Phishing attacks
@@ -29,4 +29,4 @@ Now, attacks related to our site which would be out of scope would be of the lik
 
 ### Do you pay?
 
-Sadly, due to our size and our costs to run, we are unable to pay for security vulnerability disclosures, but don't let that stop you! We'll award you with recognition on our Discord server and premium benefits on our service if your submission is deemed valid!
+Unfortunately, due to our size and our costs to run, we are unable to pay for security vulnerability disclosures, but don't let that stop you! We'll award you with recognition on our Discord server and premium benefits on our service if your submission is deemed valid!
