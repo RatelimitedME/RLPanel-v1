@@ -4,7 +4,7 @@ We take security very seriously at RATELIMITED. We welcome everyone to peek at o
 
 ### Where should I report security issues?
 
-In order to give the community time to respond and upgrade we strongly urge you report all security issues privately. Please use our [vulnerability disclosure program at Hacker One](https://hackerone.com/ratelimited) to provide details and repro steps and we will respond ASAP. If you prefer not to use Hacker One, email us directly at `security@ratelimited.me` with details and repro steps. Security issues *always* take precedence over bug fixes and feature work. We can and do mark releases as "urgent" if they contain serious security fixes.
+In order to give the community time to respond and upgrade we strongly suggest you report all security issues privately. Please use the [vulnerability disclosure program at HackerOne](https://hackerone.com/ratelimited) to provide details and steps to reproduce the issue and we will respond ASAP. If you prefer not to use HackerOne, email us directly at `security@ratelimited.me` with details and steps to reproduce the issue. Security issues will *always* take precedence over bug fixes and features. Releases are marked as urgent if they contain security fixes.
 
 ### What counts as a security issue?
 
