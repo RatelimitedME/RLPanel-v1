@@ -8,25 +8,14 @@ In order to give the community time to respond and upgrade we strongly urge you 
 
 ### What counts as a security issue?
 
-Mostly, a security issue would be one of the following:
-
-* SQL Injection
-* Privilege Escalation
-* XSS
-
-And the like.
+Most security issues fall under one of the following categories: SQL injection; privilege escalation and XSS attacks, and other similar attacks.
 
 ### What is out of scope, though?
 
-First off, any third-party site (Such as `discordapp.com`, `okta.com`, `duo.com`, `bitly.com`) is out of scope entirely.
+Any site or service we don't control, such as Discord, Bitly or other third party sites are out of scope. Please report security issues with other sites to the creators directly.
 
-Attacks related to *our* site which would be out of scope would be of the likes:
-* DDoS attacks
-* Physical attacks
-* Phishing attacks
-* Attacks that require access to a client's computer in order to work (Such as Remote Administration Tools/Trojans installed on ones PC)
-* Social Engineering attacks
+Attacks related to RATELIMITED that are out of scope would include: social engineering attacks; attacks through a genuine user such as a RAT or trojan and physical or DDoS attacks.
 
 ### Do you pay?
 
-Unfortunately, due to our size and our costs to run, we are unable to pay for security vulnerability disclosures, but don't let that stop you! We'll award you with recognition on our Discord server and premium benefits on our service if your submission is deemed valid!
+Unfortunately, due to the costs of running the service and our size, we don't pay a bug bounty - but we're open to suggestions about what we could offer - such as premium access to our service.
