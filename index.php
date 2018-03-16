@@ -1,6 +1,6 @@
 <?php 
 /*
-RLPanel v2.0 | Coypright $CURRENT_YEAR, George Tsatsis.
+RLPanel v2.0 | Coypright 2018 George Tsatsis.
 
 RLPanel contains hardcoded locations and is specifically made to work with RLAPI and RLME's database ONLY. We will not provide support.
 */
