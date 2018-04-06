@@ -123,8 +123,8 @@ function logoutFunc() {
 
 				<!-- logo -->
 				<div class="logo">
-					<a href="index.html">
-						<img src="assets/images/logo@2x.png" width="120" alt="" />
+					<a href="https://panel.ratelimited.me">
+						<img src="https://cdn.ratelimited.me/1a7ef8.png" width="120" alt="" />
 					</a>
 				</div>
 
@@ -162,13 +162,8 @@ function logoutFunc() {
 						</li>
 						<?php if($userIsAdmin == true){
 							echo "<li>
-							<a href=\"dashboard-2.html\">
-								<span class=\"title\">Dashboard 2</span>
-							</a>
-						</li>
-						<li>
-							<a href=\"dashboard-3.html\">
-								<span class=\"title\">Dashboard 3</span>
+							<a href=\"adminDash.php\">
+								<span class=\"title\">Admin Dashboard</span>
 							</a>
 						</li>";}?>
 					</ul>
@@ -186,68 +181,31 @@ function logoutFunc() {
 							</a>
 						</li>
 						<li>
-							<a href=\"forms-advanced.html\">
-								<span class=\"title\">Advanced Plugins</span>
-							</a>
-						</li>
-						<li>
-							<a href=\"forms-wizard.html\">
-								<span class=\"title\">Form Wizard</span>
-							</a>
-						</li>
-						<li>
-							<a href=\"forms-validation.html\">
-								<span class=\"title\">Data Validation</span>
-							</a>
-						</li>
-						<li>
-							<a href=\"forms-masks.html\">
-								<span class=\"title\">Input Masks</span>
-							</a>
-						</li>
-						<li>
-							<a href=\"forms-sliders.html\">
-								<span class=\"title\">Sliders</span>
-							</a>
-						</li>
-						<li>
-							<a href=\"forms-file-upload.html\">
-								<span class=\"title\">File Upload</span>
-							</a>
-						</li>
-						<li>
-							<a href=\"forms-wysiwyg.html\">
-								<span class=\"title\">Editors</span>
+							<a href=\"adminUsersList.php\">
+								<span class=\"title\">User Information</span>
 							</a>
 						</li>
 					</ul>
-				</li>
-				<li class=\"has-sub\">
-					<a href=\"tables-main.html\">
-						<i class=\"entypo-window\"></i>
-						<span class=\"title\">Tables</span>
+				</li>";}?>
+				<li class="has-sub">
+					<a href="index.html">
+						<i class="entypo-user"></i>
+						<span class="title">My Account</span>
 					</a>
 					<ul>
 						<li>
-							<a href=\"tables-main.html\">
-								<span class=\"title\">Basic Tables</span>
+							<a href="resetToken.php">
+								<span class="title">Reset Token</span>
 							</a>
 						</li>
 						<li>
-							<a href=\"tables-datatable.html\">
-								<span class=\"title\">Data Tables</span>
+							<a href="manageAccount.php">
+								<span class="title">Account Settings</span>
 							</a>
 						</li>
 					</ul>
 				</li>
-				<li>
-					<a href=\"charts.html\">
-						<i class=\"entypo-chart-bar\"></i>
-						<span class=\"title\">Charts</span>
-					</a>
-				</li>
-			</ul>";}?>
-			
+			</ul>
 		</div>
 
 	</div>
