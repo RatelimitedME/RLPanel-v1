@@ -25,7 +25,7 @@ if($_POST['Action'] == "Delete"){
 
 	/* If deleted, proceed to moving it to pre-delete phase */
 	if($deleteFileSelectReturn['deleted'] == true){
-	rename('/d2/buckets/owoapi/' . $_POST['fileName'], '/d2/RLDeletedFiles/' . $_POST['fileName']);
+	rename('/d2/buckets/owoapi/' . $SQLPreventedFileName, '/d2/RLDeletedFiles/' . $SQLPreventedFileName);
 	$successResponseArray = array('success' => 'true', 'fileName' => $SQLPreventedFileName, 'status' => 'Pending Deletion');
 	echo json_encode($successResponseArray);
 }else{ /* Otherwise, display an error message */
