@@ -506,6 +506,31 @@ function logoutFunc() {
 		
 		<div class="row">
 			<div class="col-sm-12">
+		<script type="text/javascript">
+			//var auto_refresh = setInterval(
+			//	function ()
+			//		{
+			//			$('#table-1').load('tokenGenerationTool.php #table-1').fadeIn("slow");
+			//		}, 10000); // refresh every 10000 milliseconds
+			function refreshTable(){
+				$('#table-1').DataTable().ajax.reload(null, false);
+			}
+		</script>
+				<script>
+jQuery(document).submit(function(e){
+	var form = jQuery(e.target);
+        e.preventDefault();
+        jQuery.ajax({
+            type: "POST",
+            url: form.attr("action"), 
+            data: form.serialize(), // serializes the form's elements.
+            success: function(data) {
+                console.log(data); // show response from the php script. (use the developer toolbar console, firefox firebug or chrome inspector console)
+                refreshTable();
+            }
+        });
+});
+</script>
 					<script type="text/javascript">
 
 
@@ -524,8 +549,11 @@ function logoutFunc() {
 				{ "data": "originalfilename"},
 				{ "data": "timestamp"},
 				{ "data": "md5hash"},
-				{ "data": "sha1hash"}
-				]
+				{ "data": "sha1hash"},
+				{ "filemgmt": "editfile", "render": function(data, type, row){
+                return '<td><form style=\"display: inline;\" action=\"https://panel.ratelimited.me/api/editFile.php\" class=\"edit-file\">\n<input type=\"hidden\" name=\"Action\" value=\"Edit\">\n<input type=\"hidden\" name=\"fileName\" value=\"' + row['filename'] + '\">\n<input type=\"hidden\" name=\"fileMD5Hash\" value=\"' + row['md5hash'] + '\">\n<input type=\"hidden\" name=\"fileSHA1Hash\" value=\"' + row['sha1hash'] + '\">\n<button type=\"submit\" class=\"btn btn-blue btn-xs\">\n                                <i class=\"entypo-info\"></i>\n                            </button>                        </form>\n<form style=\"display: inline;\" action=\"https://panel.ratelimited.me/api/deleteFile.php\" class=\"delete-file\">\n<input type=\"hidden\" name=\"Action\" value=\"Delete\">\n<input type=\"hidden\" name=\"fileName\" value=\"' + row['filename'] + '\">\n<input type=\"hidden\" name=\"fileMD5Hash\" value=\"' + row['md5hash'] + '\">\n<input type=\"hidden\" name=\"fileSHA1Hash\" value=\"' + row['sha1hash'] + '\">\n<button type=\"submit\" class=\"btn btn-danger btn-xs\">\n                                <i class=\"entypo-cancel\"></i>\n                                                    </button></form></td>';
+                }}
+                ]
 			});
 			
 			// Initalize Select Dropdown after DataTables is created
@@ -543,6 +571,7 @@ function logoutFunc() {
 					<th>Timestamp</th>
 					<th>MD5 Hash</th>
 					<th>SHA1 Hash</th>
+					<th>Edit File Data</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -554,6 +583,7 @@ function logoutFunc() {
 					<th>Timestamp</th>
 					<th>MD5 Hash</th>
 					<th>SHA1 Hash</th>
+					<th>Edit File Data</th>
 				</tr>
 			</tfoot>
 		</table>

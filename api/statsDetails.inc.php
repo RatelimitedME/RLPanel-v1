@@ -20,7 +20,7 @@ $signupsPendingRowCount = pg_num_rows($signupsPendingQuery);
 $getSignupsPendingCount = $signupsPendingRowCount;
 /* File Upload Totals */
 
-$filesTotalQuery = pg_query($database, "SELECT * FROM logs");
+$filesTotalQuery = pg_query($database, "SELECT * FROM logs WHERE (deleted = false OR deleted IS NULL)");
 $filesTotalRowCount = pg_num_rows($filesTotalQuery);
 
 $getTotalFilesUploadedCount = $filesTotalRowCount;

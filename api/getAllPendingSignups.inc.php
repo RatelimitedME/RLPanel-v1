@@ -8,6 +8,7 @@ if($userIsAdmin == true){
 $getAllPendingSignupRequestsQuery = "SELECT * FROM signups WHERE status = 'Pending'"; 
 $getAllPendingSignupRequestsExecution = pg_exec($database, $getAllPendingSignupRequestsQuery);
 $getAllPendingSignupRequestsRows = pg_fetch_all($getAllPendingSignupRequestsExecution);
+
 if($_GET['q'] == 'GetAllPending'){
 	echo json_encode(array('data' => $getAllPendingSignupRequestsRows));
 }
