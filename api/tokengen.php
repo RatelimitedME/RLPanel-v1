@@ -96,7 +96,26 @@ elseif($userIsAdmin == true){
            $sg = new \SendGrid($sendgridAPIKey);
 
            $sg->client->mail()->send()->post($sendgridMail);
+
+          // Send message to mBot to log and add the Has role
+          $mBotApproveCurlHandle = curl_init("http://web.mbot.party/api/RLME/approvetoken/?token=$mBotToken&granter=$_SESSION['discordId']&id=$_POST['signupDiscordId']"); /* Define the cURL handle */
+          curl_setopt($mBotApproveCurlHandle, CURLOPT_RETURNTRANSFER, true); /* Receive the headers? (Look up) */
+          curl_setopt($mBotApproveCurlHandle, CURLOPT_NOBODY, true);
+          $mBotApproveCurlHandleExec = curl_exec($mBotApproveCurlHandle);  /* Execute cURL */
+          $mBotHttpResponseCode = curl_getinfo($mBotApproveCurlHandle, CURLINFO_HTTP_CODE);
+
 	       echo json_encode(array('success' => 'true', 'details' => 'E-Mail sent to requester successfully.'));
+
+	       //Report back mBot's success
+	       if($mBotHttpResponseCode == 200){
+               echo json_encode(array('message' => 'mBot successfully added has role to user.'));
+           }
+           elseif($mBotHttpResponseCode == 404){
+               echo json_encode(array('message' => 'mBot failed to locate user in server, could not add has role.'));
+           }
+           else{
+	           echo json_encode(array('message' => 'An unknown error occurred while mBot tried to add has role.', 'httpcode' => $mBotHttpResponseCode));
+           }
        }elseif($jsonout['success'] == false){
         echo json_encode(array('success' => 'false', 'details' => 'There was an issue proccessing your request. Full log below'));
         echo $jsonenout;
@@ -109,6 +128,18 @@ elseif($userIsAdmin == true){
 		$tokenDenialExecution = pg_exec($database, $tokenDenialQuery);
 		$tokenDenialRow = pg_fetch_array($tokenDenialExecution);
     echo json_encode(array('success' => 'true', 'details' => 'Requester successfully denied.'));
+
+    // Send message to mBot to log and add the Has role
+        //split the username # discrim to $parts[0] # $parts[1]
+        $parts = explode('#', $_POST['signupDiscordUsername']);
+        $last = array_pop($parts);
+        $parts = array(implode('#', $parts), $last);
+        // send to mBot
+        $mBotApproveCurlHandle = curl_init("http://web.mbot.party/api/RLME/denytoken/?token=$mBotToken&denier=$_SESSION['discordId']&username=$parts[0]&discrim=$parts[1]&id=$_POST['signupDiscordId']"); /* Define the cURL handle */
+        curl_setopt($mBotApproveCurlHandle, CURLOPT_RETURNTRANSFER, true); /* Receive the headers? (Look up) */
+        curl_setopt($mBotApproveCurlHandle, CURLOPT_NOBODY, true);
+        $mBotApproveCurlHandleExec = curl_exec($mBotApproveCurlHandle);  /* Execute cURL */
+        $mBotHttpResponseCode = curl_getinfo($mBotApproveCurlHandle, CURLINFO_HTTP_CODE);
 	}
 
 	/* If they have accessed the webpage via an invalid authentication way / Have null data, automatically deny all requests with null data */
