@@ -2,7 +2,8 @@
 session_start();
 /* Includes */
 include __DIR__ . '/../../pgdbcreds.inc.php';
-include __DIR__ . '/../../sendgridcreds.inc.php';
+include __DIR__ . '/../libs/emailManager.php';
+include __DIR__ . '/../libs/guidv4Generator.php'
 
 /* Load up Composer */
 require __DIR__ . '/../vendor/autoload.php';
@@ -60,43 +61,9 @@ elseif($userIsAdmin == true){
           $setApprovedStatusExecution = pg_exec($database, $setApprovedStatusQuery);
           $setApprovedStatusRow = pg_fetch_array($setApprovedStatusExecution);
 
-         /* Send an e-mail to the recipient */
-                $sendgridFrom = new SendGrid\Email("RATELIMITED", "support@ratelimited.me");
-                $sendgridSubject = "Your RATELIMITED Token Request Has Been Approved!";
-                $sendgridTo = new SendGrid\Email(null, $_POST['signupDiscordEmail']);
-                $sendgridContent = new SendGrid\Content("text/html", "<!DOCTYPE html>
-<html>
-    <body>
-        <center style=\"font-family: Arial, Geneva, sans-serif;\">
-            <img src=\"https://cdn.ratelimited.me/dark_logo.png\"></img>
-            <h1>RATELIMITED.ME</h1>
-            <p>
-                Hi there, " . $_POST['signupDiscordUsername'] . ",
-                <br>
-                <br>
-                This e-mail is here to notify you about your token for the service. If you need any support, contact us via email over at support@ratelimited.me!
-                <br>
-                Keep it safe, and don&#8217;t share it with anybody.
-                <br>
-                <br>
-                Token: <code style=\"font-family: Courier, monospace;\">" . $jsonout['token'] . "</code>
-                <br>
-                <br>
-                Note: Want to be kept up-to-date with what happens with the service? Join our Discord over at: <a href=\"https://discord.gg/9bbDRHP\">https://discord.gg/9bbDRHP</a> !
-                <br>
-                <br>
-                - RATELIMITED.ME
-            </p>
-        </center>
-    </body>
-</html>");
+          /* Send the Acceptance email */
+          sendAcceptanceEmail($_POST['signupDiscordEmail'], $_POST['signupDiscordUsername'], $jsonout['token']);
 
-           $sendgridMail = new SendGrid\Mail($sendgridFrom, $sendgridSubject, $sendgridTo, $sendgridContent);
-           //$sendgridAPIKey = "Moved and is now included because I'm not leaking my creds bitches <3 -George";
-           $sg = new \SendGrid($sendgridAPIKey);
-
-           $sg->client->mail()->send()->post($sendgridMail);
-	       echo json_encode(array('success' => 'true', 'details' => 'E-Mail sent to requester successfully.'));
        }elseif($jsonout['success'] == false){
         echo json_encode(array('success' => 'false', 'details' => 'There was an issue proccessing your request. Full log below'));
         echo $jsonenout;
@@ -109,6 +76,7 @@ elseif($userIsAdmin == true){
 		$tokenDenialExecution = pg_exec($database, $tokenDenialQuery);
 		$tokenDenialRow = pg_fetch_array($tokenDenialExecution);
     echo json_encode(array('success' => 'true', 'details' => 'Requester successfully denied.'));
+    sendDeclineEmail($_POST['signupDiscordEmail'], $_POST['signupDiscordUsername']);
 	}
 
 	/* If they have accessed the webpage via an invalid authentication way / Have null data, automatically deny all requests with null data */
